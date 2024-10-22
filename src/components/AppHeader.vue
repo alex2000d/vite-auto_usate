@@ -1,4 +1,5 @@
 <script>
+import { router } from '../router';
 export default {
 
 }
@@ -12,6 +13,9 @@ export default {
                         <li class="me-3"><router-link :to="{ name: 'home' }"
                                 class="text-decoration-none text-white">Home</router-link>
                         </li>
+                        <li class="me-3"><router-link :to="{ name: 'autos' }"
+                            class="text-decoration-none text-white">Autos</router-link>
+                       </li>
                     </ul>
                 </div>
                 <div class="col-4 d-flex justify-content-center">

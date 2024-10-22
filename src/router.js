@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 import PageHome from './pages/PageHome.vue'
+import PageAuto from './pages/PageAuto.vue'
 
 
 const router = createRouter({
@@ -10,6 +11,11 @@ const router = createRouter({
             path: '/',
             name: 'home',
             component: PageHome
+        },
+        {
+            path: '/autos',
+            name: 'autos',
+            component: PageAuto,
         },
 
     ]
