@@ -13,8 +13,8 @@ export default {
                         <li class="me-3"><router-link :to="{ name: 'home' }"
                                 class="text-decoration-none text-white">Home</router-link>
                         </li>
-                        <li class="me-3"><router-link :to="{ name: 'autos' }"
-                            class="text-decoration-none text-white">Autos</router-link>
+                        <li class="me-3"><router-link :to="{ name: 'auto' }"
+                            class="text-decoration-none text-white">Auto</router-link>
                        </li>
                     </ul>
                 </div>

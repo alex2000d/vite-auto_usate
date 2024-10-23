@@ -13,8 +13,8 @@ const router = createRouter({
             component: PageHome
         },
         {
-            path: '/autos',
-            name: 'autos',
+            path: '/auto',
+            name: 'auto',
             component: PageAuto,
         },
 
