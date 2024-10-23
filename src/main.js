@@ -7,7 +7,7 @@ createApp(App).use(router).use(scrollreveal).mount('#app')
 
 // animazione menu
 ScrollReveal().reveal('.menu', { duration: 2000, delay: 900, interval: 400 });
-ScrollReveal().reveal('.menu-footer', { duration: 2000, delay: 200, interval: 400 });
+ScrollReveal().reveal('.menu-footer', { duration: 2000, delay: 200, interval: 10 });
 ScrollReveal().reveal('.logo', { duration: 2000, delay: 300, interval: 400 });
 // animazioni jumbo
 

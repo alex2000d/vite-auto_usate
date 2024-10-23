@@ -3,53 +3,55 @@ import ScrollReveal from 'scrollreveal';
 import { onMounted, onUnmounted } from 'vue';
 export default {
     setup() {
-    let observer;
+        let observer;
 
-    onMounted(() => {
-      const elements = document.querySelectorAll('.jumbo, .style');
+        onMounted(() => {
+            const elements = document.querySelectorAll('.jumbo, .style');
 
-      observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            setTimeout(() => {
-              entry.target.classList.add('visible');
-            }, 500);
-          } else {
-            entry.target.classList.remove('visible');
-            void entry.target.offsetWidth; // Reset dell'animazione
-          }
+            observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, 500);
+                    } else {
+                        entry.target.classList.remove('visible');
+                        void entry.target.offsetWidth; // Reset dell'animazione
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            elements.forEach((el) => {
+                observer.observe(el);
+            });
         });
-      }, {
-        threshold: 0.1
-      });
 
-      elements.forEach((el) => {
-        observer.observe(el);
-      });
-    });
-
-    onUnmounted(() => {
-      if (observer) {
-        const elements = document.querySelectorAll('.jumbo');
-        elements.forEach((el) => {
-          observer.unobserve(el);
+        onUnmounted(() => {
+            if (observer) {
+                const elements = document.querySelectorAll('.jumbo');
+                elements.forEach((el) => {
+                    observer.unobserve(el);
+                });
+            }
         });
-      }
-    });
-  }
+    }
 }
 </script>
 
 <template>
     <main>
-        <video width="100%" height="100%" autoplay muted loop>
-            <source src="../assets/jumbo-video.mp4" type="video/mp4">
+        <video width="100%" height="100%" autoplay muted loop style="position: relative; z-index: 1;">
+            <source src="../assets/jumbo-video-2.mp4" type="video/mp4">
         </video>
         <div class="container">
             <div class="row">
                 <div class="col-6 mt-5">
-                    <h1 class="jumbo">Qui puoi trovare tutto quello che cerchi e finalmente guidare la macchina dei tuoi sogni</h1>
-                    <p class="mt-4 jumbo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium natus mollitia
+                    <h1 class="jumbo">Qui puoi trovare tutto quello che cerchi e finalmente guidare la macchina dei tuoi
+                        sogni</h1>
+                    <p class="mt-4 jumbo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium natus
+                        mollitia
                         alias facere dolore ipsum sunt temporibus tempore eius. Laborum odit error ipsum quidem dolor
                         ullam excepturi ut reprehenderit sint!. Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Ipsa sit libero impedit in dignissimos? Expedita eaque blanditiis unde, ullam ratione molestiae
@@ -157,23 +159,26 @@ export default {
                             <h3 class="">avventura e comfort</h3>
                         </strong>
                         <hr>
-                        <p>Con le nostre auto partire per una nuova avventura non sara piu un problema,<br> le nostre auto
+                        <p>Con le nostre auto partire per una nuova avventura non sara piu un problema,<br> le nostre
+                            auto
                             sono dotate di tutto cosi da rendere il viaggio piu piacevole. </p>
                         <img class="adventure style " src=" ../assets/volante-auto.jpg" alt="">
                     </div>
-                    </div>
+                </div>
                 <div class="col-4">
                     <div>
                         <strong>
                             <h3>velocita e sicurezza</h3>
                         </strong>
                         <hr>
-                        <p>puoi scegliere sia la potenza pura con le nostre auto sportive e sentire il suono della libertà,
-                            oppure goderti il viaggio con la famiglia in totale sicurezza con i nostri suv scoprendo sempre
+                        <p>puoi scegliere sia la potenza pura con le nostre auto sportive e sentire il suono della
+                            libertà,
+                            oppure goderti il viaggio con la famiglia in totale sicurezza con i nostri suv scoprendo
+                            sempre
                             posti meravigliosi.</p>
                         <img class="velocity style" src=" ../assets/ferrari.jpg" alt="">
                     </div>
-                    </div>
+                </div>
                 <div class="col-4">
                     <div>
                         <strong>
@@ -183,7 +188,7 @@ export default {
                         <p>Scegli la macchina che fa per te e cambia il tuo stile di vita. Fai la tua scelta</p>
                         <img class="style mt-5" src="../assets/porsche.jpg" alt="">
                     </div>
-                    </div>
+                </div>
             </div>
         </div>
         <div class="container">
@@ -423,36 +428,34 @@ img:hover {
 .jumbo {
     opacity: 0;
     transform: scale(0.65);
-    transition: opacity 2s ease, transform 2s ease;
-  
+    transition: opacity 1s ease, transform 1s ease;
+
     &.visible {
-      opacity: 1;
-      transform: scale(1);
+        opacity: 1;
+        transform: scale(1);
     }
-  }
+}
 
-  .jumbotron:hover{
+.jumbotron:hover {
     scale: 1.1;
     transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
-  }
+}
 
-  .brand:hover{
+.brand:hover {
     scale: 1.1;
     transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
-  }
-  
+}
 
-  .style {
+
+.style {
     opacity: 0;
     transform: translateY(20px) scale(0.65);
     transition: opacity 2s ease, transform 2s ease;
-  
-  
-    &.visible {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
 
- 
+
+    &.visible {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
 </style>
