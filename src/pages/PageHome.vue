@@ -11,15 +11,15 @@ export default {
         <div class="container">
             <div class="row">
                 <div class="col-6 mt-5">
-                    <h1>Qui puoi trovare tutto quello che cerchi e finalmente guidare la macchina dei tuoi sogni</h1>
-                    <p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium natus mollitia
+                    <h1 class="jumbo">Qui puoi trovare tutto quello che cerchi e finalmente guidare la macchina dei tuoi sogni</h1>
+                    <p class="mt-4 jumbo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium natus mollitia
                         alias facere dolore ipsum sunt temporibus tempore eius. Laborum odit error ipsum quidem dolor
                         ullam excepturi ut reprehenderit sint!. Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Ipsa sit libero impedit in dignissimos? Expedita eaque blanditiis unde, ullam ratione molestiae
                         saepe fugiat animi neque sit quibusdam alias quas exercitationem?</p>
                 </div>
-                <div class="col-6 mt-5">
-                    <img class="jumbotron" src="../assets/jumbotron.jpeg" alt="">
+                <div class="col-6 mt-5 content-place">
+                    <img class="jumbotron content-place" src="../assets/jumbotron.jpeg" alt="">
                 </div>
             </div>
         </div>

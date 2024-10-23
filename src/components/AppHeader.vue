@@ -11,10 +11,10 @@ export default {
                 <div class="col-4 mt-5">
                     <ul class="d-flex justify-content-center list-unstyled ">
                         <li class="me-3"><router-link :to="{ name: 'home' }"
-                                class="text-decoration-none text-white">Home</router-link>
+                                class="text-decoration-none text-white menu">Home</router-link>
                         </li>
                         <li class="me-3"><router-link :to="{ name: 'auto' }"
-                            class="text-decoration-none text-white">Auto</router-link>
+                            class="text-decoration-none text-white menu">Auto</router-link>
                        </li>
                     </ul>
                 </div>

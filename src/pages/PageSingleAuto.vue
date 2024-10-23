@@ -35,8 +35,8 @@ export default {
                 <p>{{ auto.color }}</p>
                 <p>{{ auto.horsepower }}</p>
                 <p>{{ auto.fuel_type }}</p>
-                <p>{{ auto.doors }}</p>
-                <p>{{ auto.mileage }}</p>
+                <p> numero di porte: {{ auto.doors }}</p>
+                <p> kilometri: {{ auto.mileage }}</p>
                 <p>{{ auto.change_type }}</p>
                 <p>{{ auto.quantity }}</p>
                 <p>{{ auto.status }}</p>
@@ -49,7 +49,7 @@ export default {
                     </ul>
                 </div>
                 <div v-else>
-                    <p>Non ci sono tecnologie associate a questo progetto.</p>
+                    <p>nessun optionl disponibile.</p>
                 </div>
             </div>
         </div>
