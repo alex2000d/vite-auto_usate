@@ -31,14 +31,14 @@ export default {
                 <h1>
                     {{ auto.brand }} <span class="fw-normal">{{ auto.model }}</span>
                 </h1>
-                <p>{{ auto.year }}</p>
-                <p>{{ auto.color }}</p>
-                <p>{{ auto.horsepower }}</p>
-                <p>{{ auto.fuel_type }}</p>
+                <p> anno: {{ auto.year }}</p>
+                <p> colore: {{ auto.color }}</p>
+                <p> cavalli: {{ auto.horsepower }}</p>
+                <p>carburante: {{ auto.fuel_type }}</p>
                 <p> numero di porte: {{ auto.doors }}</p>
                 <p> kilometri: {{ auto.mileage }}</p>
-                <p>{{ auto.change_type }}</p>
-                <p>{{ auto.quantity }}</p>
+                <p> cambio: {{ auto.change_type }}</p>
+                <p> quantità: {{ auto.quantity }}</p>
                 <p>{{ auto.status }}</p>
                 <div v-if="auto.optionals.length > 0">
                     <h4>Optional disponibili:</h4>
