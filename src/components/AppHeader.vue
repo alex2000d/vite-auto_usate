@@ -9,13 +9,13 @@ export default {
         <div class="container">
             <div class="row">
                 <div class="col-4 mt-5">
-                    <ul class="d-flex justify-content-center list-unstyled ">
-                        <li class="me-3"><router-link :to="{ name: 'home' }"
-                                class="text-decoration-none text-white menu">Home</router-link>
+                    <ul class="d-flex justify-content-center list-unstyled">
+                        <li class="me-3">
+                            <router-link :to="{ name: 'home' }" class="text-decoration-none text-white">Home</router-link>
                         </li>
-                        <li class="me-3"><router-link :to="{ name: 'auto' }"
-                            class="text-decoration-none text-white menu">Auto</router-link>
-                       </li>
+                        <li class="me-3">
+                            <router-link :to="{ name: 'auto' }" class="text-decoration-none text-white">Auto</router-link>
+                        </li>
                     </ul>
                 </div>
                 <div class="col-4 d-flex justify-content-center">
@@ -24,6 +24,7 @@ export default {
             </div>
         </div>
     </header>
+    
 </template>
 <style lang="scss" scoped>
 header {
@@ -33,4 +34,7 @@ header {
 .logo {
     width: 120px;
 }
+
+
+  
 </style>
