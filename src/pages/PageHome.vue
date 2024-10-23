@@ -1,8 +1,45 @@
 <script>
+import ScrollReveal from 'scrollreveal';
+import { onMounted, onUnmounted } from 'vue';
 export default {
+    setup() {
+    let observer;
 
+    onMounted(() => {
+      const elements = document.querySelectorAll('.jumbo, .style');
+
+      observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              entry.target.classList.add('visible');
+            }, 500);
+          } else {
+            entry.target.classList.remove('visible');
+            void entry.target.offsetWidth; // Reset dell'animazione
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+
+      elements.forEach((el) => {
+        observer.observe(el);
+      });
+    });
+
+    onUnmounted(() => {
+      if (observer) {
+        const elements = document.querySelectorAll('.jumbo');
+        elements.forEach((el) => {
+          observer.unobserve(el);
+        });
+      }
+    });
+  }
 }
 </script>
+
 <template>
     <main>
         <video width="100%" height="100%" autoplay muted loop>
@@ -18,8 +55,8 @@ export default {
                         Ipsa sit libero impedit in dignissimos? Expedita eaque blanditiis unde, ullam ratione molestiae
                         saepe fugiat animi neque sit quibusdam alias quas exercitationem?</p>
                 </div>
-                <div class="col-6 mt-5 content-place">
-                    <img class="jumbotron content-place" src="../assets/jumbotron.jpeg" alt="">
+                <div class="col-6 mt-5">
+                    <img class="jumbotron jumbo" src="../assets/jumbotron.jpeg" alt="">
                 </div>
             </div>
         </div>
@@ -115,32 +152,38 @@ export default {
                     <h1 class="text-center">Scegli il giusto stile</h1>
                 </div>
                 <div class="col-4">
-                    <strong>
-                        <h3>avventura e comfort</h3>
-                    </strong>
-                    <hr>
-                    <p>Con le nostre auto partire per una nuova avventura non sara piu un problema,<br> le nostre auto
-                        sono dotate di tutto cosi da rendere il viaggio piu piacevole. </p>
-                    <img class="adventure" src=" ../assets/volante-auto.jpg" alt="">
-                </div>
+                    <div class>
+                        <strong>
+                            <h3 class="">avventura e comfort</h3>
+                        </strong>
+                        <hr>
+                        <p>Con le nostre auto partire per una nuova avventura non sara piu un problema,<br> le nostre auto
+                            sono dotate di tutto cosi da rendere il viaggio piu piacevole. </p>
+                        <img class="adventure style " src=" ../assets/volante-auto.jpg" alt="">
+                    </div>
+                    </div>
                 <div class="col-4">
-                    <strong>
-                        <h3>velocita e sicurezza</h3>
-                    </strong>
-                    <hr>
-                    <p>puoi scegliere sia la potenza pura con le nostre auto sportive e sentire il suono della libertà,
-                        oppure goderti il viaggio con la famiglia in totale sicurezza con i nostri suv scoprendo sempre
-                        posti meravigliosi.</p>
-                    <img class="velocity" src=" ../assets/ferrari.jpg" alt="">
-                </div>
+                    <div>
+                        <strong>
+                            <h3>velocita e sicurezza</h3>
+                        </strong>
+                        <hr>
+                        <p>puoi scegliere sia la potenza pura con le nostre auto sportive e sentire il suono della libertà,
+                            oppure goderti il viaggio con la famiglia in totale sicurezza con i nostri suv scoprendo sempre
+                            posti meravigliosi.</p>
+                        <img class="velocity style" src=" ../assets/ferrari.jpg" alt="">
+                    </div>
+                    </div>
                 <div class="col-4">
-                    <strong>
-                        <h3>Stile</h3>
-                    </strong>
-                    <hr>
-                    <p>Scegli la macchina che fa per te e cambia il tuo stile di vita. Fai la tua scelta</p>
-                    <img class="style mt-5" src="../assets/porsche.jpg" alt="">
-                </div>
+                    <div>
+                        <strong>
+                            <h3>Stile</h3>
+                        </strong>
+                        <hr>
+                        <p>Scegli la macchina che fa per te e cambia il tuo stile di vita. Fai la tua scelta</p>
+                        <img class="style mt-5" src="../assets/porsche.jpg" alt="">
+                    </div>
+                    </div>
             </div>
         </div>
         <div class="container">
@@ -311,15 +354,6 @@ img:hover {
     transform: translateZ(20px);
 }
 
-// .jumbo-auto{
-//     background-image: url('C:/Users/andre/Desktop/boolean/laravel-autousate/laravel-autousate/resources/img/pexels-introspectivedsgn-28862474.jpg');
-//     background-size: cover;
-//     background-position: center;
-//     height: 800px;
-//     opacity: ;
-// }
-
-
 .jumbo-auto {
     position: relative;
     height: 800px;
@@ -385,4 +419,40 @@ img:hover {
         object-fit: cover;
     }
 }
+
+.jumbo {
+    opacity: 0;
+    transform: scale(0.65);
+    transition: opacity 2s ease, transform 2s ease;
+  
+    &.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .jumbotron:hover{
+    scale: 1.1;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+  }
+
+  .brand:hover{
+    scale: 1.1;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+  }
+  
+
+  .style {
+    opacity: 0;
+    transform: translateY(20px) scale(0.65);
+    transition: opacity 2s ease, transform 2s ease;
+  
+  
+    &.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+ 
 </style>
